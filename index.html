@@ -1,0 +1,55 @@
+<!doctype html>
+<html  ng-app='App'>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+</head>
+
+<body ng-controller="appCtrl">
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="sueldo" placeholder="Enter a name here">
+        <hr>
+        <h1 ng-class='persona.cssClass'>Hello {{persona.nombre}} {{sueldo | currency}}!</h1>
+        <div  ng-class='sueldo' ng-click=""><p>Amigos</p></div>
+        <button ng-click="persona.saludar()">Saludar</button>
+        <button ng-click="persona.despedirse()">Saludar</button>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        var application = angular.module('App',[]);
+        application.controller('appCtrl',function($scope){
+            
+            $scope.persona = {
+                nombre:'Adrian',
+                cssClass:'bg-primary',
+                saludar:function(){
+                    console.log('Hola');
+                    $scope.persona.cssClass='bg-success';
+                },
+                despedirse:function(){
+                    console.log('Chao');
+                     $scope.persona.cssClass='bg-info';
+                }
+            };
+            
+            
+            
+        });
+    </script>
+    
+    
+    
+</body>
+    
+    
+
+</html>
